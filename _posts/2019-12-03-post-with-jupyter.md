@@ -1,11 +1,12 @@
 ---
-title: "post-with-jupyter"
+title: "Jupyter로 Jekyll 포스팅하기"
 search: true
 categories:
  - Notebook
 tags:
- - Need_modify
-last_modified_at: 2999-12-31 23:59
+ - jupyter
+ - jekyll
+last_modified_at: 2019-12-3 02:42
 layout: jupyter
 classes: wide
 ---
@@ -26,66 +27,6 @@ nbconvert가 노트북 파일을 마크다운으로 변환할 때 사용하는 �
 nbconvert는 html로 변환하는 경우에는 `basic.tpl`, 마크다운으로 변환하는 경우에는 `markdown.tpl`을 기본값으로 사용하여 렌더링을 합니다. 마크다운으로 변환해 포스팅을 하는 것이 목적이므로, nbconvert 패키지 내에 `markdown.tpl`을 상속받는 `jekyll.tpl`을 다음과 같이 만들었습니다.
 
 [gihub 링크 추가하기!]()
-
-````html
-{% extends 'markdown.tpl' %}
-
-{%- block header -%}
----
-title: "{{resources['metadata']['name']}}"
-search: true
-categories:
- - Notebook
-tags:
- - Need_modify
-last_modified_at: 2999-12-31 23:59
-layout: jupyter
-classes: wide
----
-{%- endblock header -%}
-
-{% block in_prompt %}
-<div class="prompt input_prompt">
-In&nbsp;[{{ cell.execution_count }}]:
-</div>
-{% endblock in_prompt %}
-
-{% block input %}
-<div class="input_area" markdown="1">
-{{ super() }}
-</div>
-{% endblock input %}
-
-{% block stream %}
-{:.output_stream}
-
-```
-{{ output.text }}
-```
-{% endblock stream %}
-
-{% block data_text %}
-{:.output_data_text}
-
-```
-{{ output.data['text/plain'] }}
-```
-{% endblock data_text %}
-
-{% block traceback_line  %}
-{:.output_traceback_line}
-
-`{{ line | strip_ansi }}`
-
-{% endblock traceback_line  %}
-
-{% block data_html %}
-<div markdown="0">
-{{ output.data['text/html'] }}
-</div>
-{% endblock data_html %}
-
-````
 
 
 위의 템플릿은 [https://predictablynoisy.com/jekyll-markdown-nbconvert] 의 블로그 글을 참고하여 작성하였으며, 반영한 수정사항은 다음과 같습니다.
