@@ -5,8 +5,8 @@ categories:
  - Notebook
 tags:
  - Jupyter
- - Jekyll 
-last_modified_at: 2019-12-3 02:30
+ - Jekyll
+last_modified_at: 2019-12-3 02:55
 layout: jupyter
 classes: wide
 ---
@@ -31,7 +31,7 @@ nbconvert는 html로 변환하는 경우에는 `basic.tpl`, 마크다운으로 �
 <script src="https://gist.github.com/jungsooyun/600376256d7e2d647fac611f7f0aed5c.js"></script>
 
 
-위의 템플릿은 [다음의 글](https://predictablynoisy.com/jekyll-markdown-nbconvert)을 참고하여 작성하였으며, 반영한 수정사항은 다음과 같습니다.
+위의 템플릿은 [다음의 글](https://predictablynoisy.com/jekyll-markdown-nbconvert) 의 블로그 글을 참고하여 작성하였으며, 반영한 수정사항은 다음과 같습니다.
 
 - YAML Front Matter 양식 헤더에 추가
 - input 블록은 기존 템플릿의 변환 방식을 그대로 사용
@@ -93,7 +93,7 @@ table.dataframe tr:hover {
 
 ### 쉘 함수로 경로 설정 자동화하기
 
-위에서 언급한 `_post`폴더에 png파일이 포함되는 경우 에러가 발생하는 이슈 때문에, 파일에 이미지가 포함되는 경우 그 경로를 모두 `_post` 폴더 바깥으로 바꾼 뒤, 이미지를 모두 옮긴 후, 위에서 작성한 템플릿을 적용해 nbconvert를 실행해야 하는데 그 번거로움이 이만저만이 아닙니다. 그래서, `images` 폴더를 별도로 생성해준 다음에, 이를 자동으로 수행해주는 쉘 함수를 [다음의 글](https://blomadam.github.io/tutorials/2017/04/09/ipynb-to-Jekyll-Post-tools.html) 를 참조하여  만들어 `.zshrc`에 추가해 주었습니다. bash를 사용하시는 분들은 `.bash_profile`에 추가해주시면 됩니다.
+위에서 언급한 `_post`폴더에 png파일이 포함되는 경우 에러가 발생하는 이슈 때문에, 파일에 이미지가 포함되는 경우 그 경로를 모두 `_post` 폴더 바깥으로 바꾼 뒤, 이미지를 모두 옮긴 후, 위에서 작성한 템플릿을 적용해 nbconvert를 실행해야 하는데 그 번거로움이 이만저만이 아닙니다. 그래서, `images` 폴더를 별도로 생성해준 다음에, 이를 자동으로 수행해주는 쉘 함수를 [다음의 글](https://blomadam.github.io/tutorials/2017/04/09/ipynb-to-Jekyll-Post-tools.html) 을 참조하여 만들어 `.zshrc`에 추가해 주었습니다. bash를 사용하시는 분들은 `.bash_profile`에 추가해주시면 됩니다.
 
 ```sh
 function new_post {
@@ -119,6 +119,7 @@ function new_post {
     # move everything to blog area
     mv  $POST_NAME "${POST_PATH}/${POST_DATE_NAME}"
     mv  $IMG_NAME "${IMG_PATH}/"
+}
 ```
 
 이제 다음의 코드를 실행하면 자동으로 `_posts` 폴더에 주피터 파일이 변환됩니다!
@@ -126,6 +127,16 @@ function new_post {
 ```sh
 new_post post-with-jupyter.ipynb
 ```
+
+```text
+➜  _ipynb git:(master) ✗ new_post post-with-jupyter.ipynb
+[NbConvertApp] Converting notebook post-with-jupyter.ipynb to markdown
+[NbConvertApp] Support files will be in post-with-jupyter_files/
+[NbConvertApp] Making directory post-with-jupyter_files
+[NbConvertApp] Writing 7704 bytes to post-with-jupyter.md
+```
+
+YAML Front Matter는 손으로 한땀한땀 수정해주어야 하지만, 블로그 글 완성에는 시간이 오래걸리니까 그 정도는 수동으로 하기로 했습니다.
 
 다음은 주피터 코드 실행 예시입니다. 결과물이 어떻게 나오는지 확인해보세요!
 
