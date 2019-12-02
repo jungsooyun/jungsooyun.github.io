@@ -25,7 +25,9 @@ nbconvert가 노트북 파일을 마크다운으로 변환할 때 사용하는 �
 
 nbconvert는 html로 변환하는 경우에는 `basic.tpl`, 마크다운으로 변환하는 경우에는 `markdown.tpl`을 기본값으로 사용하여 렌더링을 합니다. 마크다운으로 변환해 포스팅을 하는 것이 목적이므로, nbconvert 패키지 내에 `markdown.tpl`을 상속받는 `jekyll.tpl`을 다음과 같이 만들었습니다.
 
-[gihub 링크 추가하기!]()
+**[jekyll.tpl 링크](https://github.com/jungsooyun/jungsooyun.github.io/blob/master/jekyll.tpl)**
+
+<script src="https://gist.github.com/jungsooyun/600376256d7e2d647fac611f7f0aed5c.js"></script>
 
 
 위의 템플릿은 [https://predictablynoisy.com/jekyll-markdown-nbconvert] 의 블로그 글을 참고하여 작성하였으며, 반영한 수정사항은 다음과 같습니다.
@@ -37,8 +39,6 @@ nbconvert는 html로 변환하는 경우에는 `basic.tpl`, 마크다운으로 �
 - input prompt(`In: [0]`)은 살리고, output prompt는 숨기기
 
 그런데 위 템플릿을 이용해 막상 변환을 진행하니 블로그의 테이블 양식이 jupyter의 pandas dataframe을 표현하기에는 조금 부적합하다고 느껴져서 별도의 stylesheet를 작성해주었고, 이를 layout이 jupyter인 경우에만 적용되도록 수정하였습니다.
-
-[github 링크 추가하기!]()
 
 ```css
 <style type="text/css">

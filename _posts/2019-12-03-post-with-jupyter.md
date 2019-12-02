@@ -4,9 +4,9 @@ search: true
 categories:
  - Notebook
 tags:
- - jupyter
- - jekyll
-last_modified_at: 2019-12-3 02:42
+ - Jupyter
+ - Jekyll 
+last_modified_at: 2019-12-3 02:30
 layout: jupyter
 classes: wide
 ---
@@ -26,10 +26,12 @@ nbconvert가 노트북 파일을 마크다운으로 변환할 때 사용하는 �
 
 nbconvert는 html로 변환하는 경우에는 `basic.tpl`, 마크다운으로 변환하는 경우에는 `markdown.tpl`을 기본값으로 사용하여 렌더링을 합니다. 마크다운으로 변환해 포스팅을 하는 것이 목적이므로, nbconvert 패키지 내에 `markdown.tpl`을 상속받는 `jekyll.tpl`을 다음과 같이 만들었습니다.
 
-[gihub 링크 추가하기!]()
+**[jekyll.tpl 링크](https://github.com/jungsooyun/jungsooyun.github.io/blob/master/jekyll.tpl)**
+
+<script src="https://gist.github.com/jungsooyun/600376256d7e2d647fac611f7f0aed5c.js"></script>
 
 
-위의 템플릿은 [https://predictablynoisy.com/jekyll-markdown-nbconvert] 의 블로그 글을 참고하여 작성하였으며, 반영한 수정사항은 다음과 같습니다.
+위의 템플릿은 [다음의 글](https://predictablynoisy.com/jekyll-markdown-nbconvert)을 참고하여 작성하였으며, 반영한 수정사항은 다음과 같습니다.
 
 - YAML Front Matter 양식 헤더에 추가
 - input 블록은 기존 템플릿의 변환 방식을 그대로 사용
@@ -38,8 +40,6 @@ nbconvert는 html로 변환하는 경우에는 `basic.tpl`, 마크다운으로 �
 - input prompt(`In: [0]`)은 살리고, output prompt는 숨기기
 
 그런데 위 템플릿을 이용해 막상 변환을 진행하니 블로그의 테이블 양식이 jupyter의 pandas dataframe을 표현하기에는 조금 부적합하다고 느껴져서 별도의 stylesheet를 작성해주었고, 이를 layout이 jupyter인 경우에만 적용되도록 수정하였습니다.
-
-[github 링크 추가하기!]()
 
 ```css
 <style type="text/css">
@@ -93,7 +93,7 @@ table.dataframe tr:hover {
 
 ### 쉘 함수로 경로 설정 자동화하기
 
-위에서 언급한 `_post`폴더에 png파일이 포함되는 경우 에러가 발생하는 이슈 때문에, 파일에 이미지가 포함되는 경우 그 경로를 모두 `_post` 폴더 바깥으로 바꾼 뒤, 이미지를 모두 옮긴 후, 위에서 작성한 템플릿을 적용해 nbconvert를 실행해야 하는데 그 번거로움이 이만저만이 아닙니다. 그래서, `images` 폴더를 별도로 생성해준 다음에, 이를 자동으로 수행해주는 쉘 함수를(https://blomadam.github.io/tutorials/2017/04/09/ipynb-to-Jekyll-Post-tools.html) 를 참조하여  만들어 `.zshrc`에 추가해 주었습니다. bash를 사용하시는 분들은 `.bash_profile`에 추가해주시면 됩니다.
+위에서 언급한 `_post`폴더에 png파일이 포함되는 경우 에러가 발생하는 이슈 때문에, 파일에 이미지가 포함되는 경우 그 경로를 모두 `_post` 폴더 바깥으로 바꾼 뒤, 이미지를 모두 옮긴 후, 위에서 작성한 템플릿을 적용해 nbconvert를 실행해야 하는데 그 번거로움이 이만저만이 아닙니다. 그래서, `images` 폴더를 별도로 생성해준 다음에, 이를 자동으로 수행해주는 쉘 함수를 [다음의 글](https://blomadam.github.io/tutorials/2017/04/09/ipynb-to-Jekyll-Post-tools.html) 를 참조하여  만들어 `.zshrc`에 추가해 주었습니다. bash를 사용하시는 분들은 `.bash_profile`에 추가해주시면 됩니다.
 
 ```sh
 function new_post {
