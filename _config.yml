@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en_US"
-title                    : "제리로그"
+title                    : "Jungsoo Yun"
 title_separator          : "|"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Jungsoo Yun"
@@ -110,7 +110,7 @@ analytics:
 author:
   name             : "Jungsoo Yun"
   avatar           : "/assets/images/profile_photo.jpg"
-  bio              : "**취미**가 개발이고 싶은 개발자"
+  bio              : ":)"
   location         : "Seoul, Korea"
   email            : "jungsoo.yun@kakao.com"
   links:
