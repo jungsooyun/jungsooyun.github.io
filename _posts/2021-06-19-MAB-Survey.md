@@ -91,7 +91,7 @@ $x_i$ 는 i번째 arm의 지금까지 관측한 reward (클릭)의 평균값이�
 
 ### 3\. Thompson Sampling
 
-Probability Matching이라고도 불립니다. Google Analytics의 AB 테스팅 최적화에도 사용된 알고리즘이며, 일반적으로 UCB나 $\epsilon$-greedy 보다 성능이 높음이 보여져있습니다. 시간 t마다 정책에 따라 arm a를 선택하고, 그에 상응하는 reward $r$ 을 받을 때, Thompson sampling은 관측치 ($a_t,r_t$) 와 파라미터 $\theta$ 를 사용해 likelihood function $P(r|a, \theta)$ 를 설계한 다음, prior를 가정해 MAP (Maximum A Posteriori)를 푸는 것입니다. 이 때, 각각의 arm의 reward가 관찰될 확률 $\theta_k$이 독립적인 베르누이 분포를 따른다고 가정했을 때, conjugacy 특성으로 인해 prior를 베타분포로 잡는다면, posterior 또한 베타분포가 됩니다. 이 때, $\theta_k$ 는 다음과 같은 파라미터를 가집니다.
+Probability Matching이라고도 불립니다. Google Analytics의 AB 테스팅 최적화에도 사용된 알고리즘이며, 일반적으로 UCB나 $\epsilon$-greedy 보다 성능이 높음이 보여져있습니다. 시간 t마다 정책에 따라 arm a를 선택하고, 그에 상응하는 reward $r$ 을 받을 때, Thompson sampling은 관측치 ($a_t,r_t$) 와 파라미터 $\theta$ 를 사용해 likelihood function $P(r \mid a, \theta)$ 를 설계한 다음, prior를 가정해 MAP (Maximum A Posteriori)를 푸는 것입니다. 이 때, 각각의 arm의 reward가 관찰될 확률 $\theta_k$이 독립적인 베르누이 분포를 따른다고 가정했을 때, conjugacy 특성으로 인해 prior를 베타분포로 잡는다면, posterior 또한 베타분포가 됩니다. 이 때, $\theta_k$ 는 다음과 같은 파라미터를 가집니다.
 
 $$
 \theta_k \sim Beta(\alpha_k, \beta_k)
