@@ -81,21 +81,31 @@ OFU는 불확실한 것을 낙관적으로 보자는 컨셉의 알고리즘입�
   <img src="https://i.imgur.com/nSnlmxL.png">
 </center>
 
-UCB를 정의하는 방법에 따라 여러 변형 알고리즘들이 있지만, 대표적인 UCB 알고리즘인 UCB1이 arm을 고르는 방식은 다음과 같습니다. $$ i = \underset{i}{argmax} \bar{x_i}+\sqrt{\frac{2lnt}{n_i}} $$ $x_i$ 는 i번째 arm의 지금까지 관측한 reward (클릭)의 평균값이고, $n_i$ 는 arm i가 play (impression)된 횟수를 의미합니다. 위의 값은 arm i의 실제 보상에 대한 $1-\frac{1}{t}$ 의 신뢰구간의 upper bound를 의미하는 것으로, [Chernoff-Hoeffding bound](https://en.wikipedia.org/wiki/Chernoff_bound) 에 의해 얻어지는 값입니다. 처음에는 관측 결과 수가 적은 arm들이 뽑힐 확률이 높지만 (exploration), time은 log scale로 증가, $n_i$ 는 linear하게 증가하므로 우항의 값은 시간이 흐를 수록 작아지고, exploration의 비율이 시간이 흐름에 따라 감소합니다.
+UCB를 정의하는 방법에 따라 여러 변형 알고리즘들이 있지만, 대표적인 UCB 알고리즘인 UCB1이 arm을 고르는 방식은 다음과 같습니다. 
+
+$$
+i = \underset{i}{argmax} \bar{x_i}+\sqrt{\frac{2lnt}{n_i}}
+$$
+
+$x_i$ 는 i번째 arm의 지금까지 관측한 reward (클릭)의 평균값이고, $n_i$ 는 arm i가 play (impression)된 횟수를 의미합니다. 위의 값은 arm i의 실제 보상에 대한 $1-\frac{1}{t}$ 의 신뢰구간의 upper bound를 의미하는 것으로, [Chernoff-Hoeffding bound](https://en.wikipedia.org/wiki/Chernoff_bound) 에 의해 얻어지는 값입니다. 처음에는 관측 결과 수가 적은 arm들이 뽑힐 확률이 높지만 (exploration), time은 log scale로 증가, $n_i$ 는 linear하게 증가하므로 우항의 값은 시간이 흐를 수록 작아지고, exploration의 비율이 시간이 흐름에 따라 감소합니다.
 
 ### 3\. Thompson Sampling
 
 Probability Matching이라고도 불립니다. Google Analytics의 AB 테스팅 최적화에도 사용된 알고리즘이며, 일반적으로 UCB나 $\epsilon$-greedy 보다 성능이 높음이 보여져있습니다. 시간 t마다 정책에 따라 arm a를 선택하고, 그에 상응하는 reward $r$ 을 받을 때, Thompson sampling은 관측치 ($a_t,r_t$) 와 파라미터 $\theta$ 를 사용해 likelihood function $P(r|a, \theta)$ 를 설계한 다음, prior를 가정해 MAP (Maximum A Posteriori)를 푸는 것입니다. 이 때, 각각의 arm의 reward가 관찰될 확률 $\theta_k$이 독립적인 베르누이 분포를 따른다고 가정했을 때, conjugacy 특성으로 인해 prior를 베타분포로 잡는다면, posterior 또한 베타분포가 됩니다. 이 때, $\theta_k$ 는 다음과 같은 파라미터를 가집니다.
+
 $$
 \theta_k \sim Beta(\alpha_k, \beta_k)
 $$
+
 분포가 가정되었기 때문에 분포를 통해 평균과 분산을 알 수 있습니다. 이 때, 분산이 의미하는 것은 **Explore** 입니다. 베타 분포의 평균과 분산은 다음과 같은 모양입니다.
+
 $$
 \begin{align}
 E[\theta_k] &= \frac{\alpha}{\alpha+\beta} \newline
 V[\theta_k] &= \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}
 \end{align}
 $$
+
 
 Thompson Sampling의 파라미터 업데이트는 다음과 같이 이루어지기 때문에, 시행이 거듭될 수록 분산은 작아지게 되므로, Exploration의 정도는 줄어들게 됩니다. 이 때, $c_i \in {0, 1}$ 는 클릭의 유무를 의미합니다.
 
@@ -104,7 +114,6 @@ $$
 p(u) &\propto \mu^{\alpha-1}(1-\mu)^{\beta-1} \; \newline Likelihood &= \prod_{i=1}^N \mu^{x_i}(1-\mu)^{1-x_i} \newline posterior &= likelihood \cdot prior
 \end{align}
 $$
-
 
 OFU 알고리즘은 추정된 분포의 신뢰구간 상한선을 바탕으로 의사결정을 했다면, TS 알고리즘은 추정된 분포로부터 직접 샘플을 뽑아 의사결정을 합니다.
 
@@ -200,12 +209,19 @@ Multi-armed bandit의 multi는 arm이 K개 있다는 것을 가정하지만, 한
 이러한 연구는 IR 분야에서 유저의 행동 패턴을 분석하는 Click Model과 MAB를 결합하여 해결하려는 시도로 이어졌는데, 대표적인 Click Model은 다음과 같습니다. (참고 : [Click Models for Web Search (Authors' version)](https://pdfs.semanticscholar.org/0b19/b37da5e438e6355418c726469f6a00473dc3.pdf))
 
 > Notation
+> 
 > $u$ : document id
+> 
 > $q$ : user's query
+> 
 > $u_r$ : A document at rank r
+> 
 > $C_u$ : r.v for Click document u
+> 
 > $E_u$ : r.v for Examinate document u
+> 
 > $A_u$ : r.v for Attractiveness of document u
+> 
 > $S_r$ : r.v for Satisfaction level after click
 
 - Random Click Model (RCM)
@@ -302,6 +318,7 @@ $$
 > --------------------------------------------------------------------------------
 > **[Normalization]**
 > $M_t$ : t 배치에서 해당 밴딧의 모든 arm들의 impression 수, $K$ : arm의 수
+
 $$
 \begin{align}
 \alpha_{t+1} &= \alpha_{t} + \frac{M_t}{K}\frac{c_t}{c_t + u_t} \newline \beta_{t+1} &= \beta_{t} + \frac{M_t}{K}\left ( 1 - \frac{c_t}{c_t+u_t} \right )
