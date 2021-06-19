@@ -269,7 +269,7 @@ $$
 
 이외에도 DCM 등 다양한 클릭 모델들이 존재합니다.
 
-이러한 클릭 모델은 슬롯별 CTR 예측에 사용되는데, 해당 모델들이 Eye Tracking 등 HCI 기반의 연구와 함께 이루어져 실제 유저의 행동패턴을 잘 반영한다는 특성때문에 클릭 모델과 MAB를 결합하려는 시도가 [_Cascading Bandits: Learning to Rank in the Cascade Model (ICML 2015)_](https://arxiv.org/pdf/1502.02763.pdf) 에서 이루어지게 됩니다. 이는 Click Model 중 가장 널리쓰이는 Cascade model과 MAB를 결합한 것이며, 과거 인턴인 [Chris의 발표자료](https://kakao-recotech.slack.com/files/UEVH53M9N/FGBNWN3V3/________________________.pptx) 에서 해당 논문에 소개된 CascadeUCB1, CascadeKL-UCB가 소개되어 있습니다.
+이러한 클릭 모델은 슬롯별 CTR 예측에 사용되는데, 해당 모델들이 Eye Tracking 등 HCI 기반의 연구와 함께 이루어져 실제 유저의 행동패턴을 잘 반영한다는 특성때문에 클릭 모델과 MAB를 결합하려는 시도가 [_Cascading Bandits: Learning to Rank in the Cascade Model (ICML 2015)_](https://arxiv.org/pdf/1502.02763.pdf) 에서 이루어지게 됩니다. 이는 Click Model 중 가장 널리쓰이는 Cascade model과 MAB를 결합한 것이며, 논문에 CascadeUCB1, CascadeKL-UCB가 소개되어 있습니다.
 
 또한 위에서 언급한 IMP-TS를 소개한 논문 Appendix에 Cascade 상황에서 생기는 bias를 해결하기 위해 MP-TS를 변형한 BC-MP-TS (Bias-Corrected MP TS)또한 소개됩니다.
 
