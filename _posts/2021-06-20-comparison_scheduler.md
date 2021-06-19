@@ -1,5 +1,5 @@
 ---
-title: [MLOps] DAG 방식의 Workflow 관리 도구 간략 체험기
+title: DAG 방식의 Workflow 관리 도구 간략 체험기
 search: true
 categories:
  - MLOps
