@@ -1,5 +1,5 @@
 ---
-title: 날로먹는 Multi Armed Bandit(MAB)
+title: Multi Armed Bandit 변천사 훑어보기
 search: true
 categories:
  - MAB
@@ -12,7 +12,8 @@ classes : wide
 
 특정 컨텐츠에 순위를 매긴다는 개념은 IR 분야에서 Learning to Rank 프레임워크로 많이 연구가 되었습니다. 최근 랭킹 트렌드는 그 경계가 모호해진 것 같고, 실시간 학습/인퍼런스 보다는 딥러닝 모델과 같이 배치 학습/인퍼런스가 이루어지는 경우가 많은 것 같지만, 추천 분야에서는 Online Learning의 필요성이 많았고, Online Learning to Rank를 MAB 프레임워크로 풀어나가는 경우가 여전히 많습니다.
 
-MAB 프레임워크로 OLTR을 어떻게 정의하는지 알아봅시다.
+MAB 프레임워크로 OLTR을 어떻게 정의하는지와, 그 변천사를 간략히 정리해보았습니다.
+
 
 --------------------------------------------------------------------------------
 
