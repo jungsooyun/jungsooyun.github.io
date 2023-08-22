@@ -214,7 +214,7 @@ Such research led to attempts to solve the problem by combining Click Model, whi
 > $A_u$ : r.v for Attractiveness of document u
 > 
 > $S_r$ : r.v for Satisfaction level after click
-> 
+
 - Random Click Model (RCM)
 
 $$ P(C_u = 1) = \rho $$
