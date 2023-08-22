@@ -2,8 +2,7 @@
 title: Macmini as Server
 search: true
 categories:
- - DIY
- - development
+ - general
 tags:
  - macOS
  - equipment

@@ -16,10 +16,10 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en_US"
-title                    : "Jungsoo Yun"
+title                    : "Jerry"
 title_separator          : "|"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Jungsoo Yun"
+name                     : "Jerry"
 description              : # "취미가 개발이고 싶은 개발자"
 url                      : "https://jungsooyun.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -30,7 +30,7 @@ masthead_title           : # overrides the website title displayed in the masthe
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 100
 comments:
-  provider               : "disqus"
+  provider               : "utterances"
     # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
   disqus:
     shortname            : "jerry-yun"
@@ -42,8 +42,8 @@ comments:
     num_posts            : # 5 (default)
     colorscheme          : # "light" (default), "dark"
   utterances:
-    theme                : # "github-light" (default), "github-dark"
-    issue_term           : # "pathname" (default)
+    theme                : "github-light"
+    issue_term           : "pathname"
 staticman:
   allowedFields          : # ['name', 'email', 'url', 'message']
   branch                 : # "master"
@@ -108,7 +108,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Jungsoo Yun"
+  name             : "Jerry"
   avatar           : "/assets/images/profile_photo.jpg"
   bio              : ":)"
   location         : "Seoul, Korea"
@@ -122,10 +122,10 @@ author:
       # url: "https://your-website.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      url: "https://facebook.com/yunj415"
+      url: "https://twitter.com/JerryYun44"
+      # - label: "Facebook"
+      #   icon: "fab fa-fw fa-facebook-square"
+      #   url: "https://facebook.com/yunj415"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/jungsooyun"
