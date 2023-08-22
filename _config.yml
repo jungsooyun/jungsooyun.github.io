@@ -23,7 +23,7 @@ name                     : "Jerry"
 description              : # "취미가 개발이고 싶은 개발자"
 url                      : "https://jungsooyun.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "jungsooyun/jungsooyun.github.io"
+repository               : "jungsooyun/jungsooyun.github.io"
 teaser                   : #"/assets/images/profile_photo.jpg"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
