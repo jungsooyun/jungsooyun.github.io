@@ -78,10 +78,10 @@ google:
   search_engine_id       : # YOUR_SEARCH_ENGINE_ID
   instant_search         : # false (default), true
 # SEO Related
-google_site_verification :
+google_site_verification : "Ll4h74qqzEbY2tZw5Hp0EJdXetMFXbyXd_jS1ls0mgs"
 bing_site_verification   :
 yandex_site_verification :
-naver_site_verification  :
+naver_site_verification  : "b015e51e6a55cfcbf8626d50c31611ca3aca16c1"
 
 # Social Sharing
 twitter:
@@ -102,7 +102,7 @@ social:
 analytics:
   provider               : "google"
   google:
-    tracking_id          : "UA-112316308-1"
+    tracking_id          : "G-MMWNHEJ5SC"
     anonymize_ip         : false
 
 
@@ -110,7 +110,7 @@ analytics:
 author:
   name             : "Jerry"
   avatar           : "/assets/images/profile_photo.jpg"
-  bio              : ":)"
+  bio              : "Data Engineer"
   location         : "Seoul, Korea"
   email            : "jungsoo.yun@kakao.com"
   links:
